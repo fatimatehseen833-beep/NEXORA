@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEXORA | Premium Next-Gen E-Commerce</title>
+    <!-- Google Fonts & FontAwesome Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Global Top Loading Bar Overlay -->
+    <div id="global-loader" class="global-loader"></div>
+
+    <!-- Sticky Navigation Bar -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">NEXORA<span>.</span></a>
+            
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#shop" class="nav-link">Shop</a></li>
+                <li><a href="#categories" class="nav-link">Categories</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <div class="search-wrapper">
+                    <input type="text" id="search-input" placeholder="Search premium items...">
+                    <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                    <div id="search-suggestions" class="search-suggestions hidden"></div>
+                </div>
+                <button class="nav-btn" id="wishlist-toggle-btn" aria-label="Wishlist">
+                    <i class="fa-regular fa-heart"></i>
+                    <span class="badge" id="wishlist-badge">0</span>
+                </button>
+                <button class="nav-btn" id="cart-toggle-btn" aria-label="Cart">
+                    <i class="fa-solid fa-bag-shopping"></i>
+                    <span class="badge" id="cart-badge">0</span>
+                </button>
+                <button class="btn btn-primary btn-sm" id="login-modal-btn">Login</button>
+                <button class="hamburger" id="hamburger-menu" aria-label="Menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero-section">
+            <div class="hero-bg-glow"></div>
+            <div class="container hero-container">
+                <div class="hero-content">
+                    <h1 class="hero-title">Experience the Future of <span class="text-gradient">Premium Shopping</span></h1>
+                    <p class="hero-subtitle">Discover handpicked high-performance electronics, luxurious apparel, and next-generation lifestyle essentials meticulously tailored to your digital ecosystem.</p>
+                    <div class="hero-buttons">
+                        <a href="#shop" class="btn btn-primary ripple">Shop Now <i class="fa-solid fa-arrow-right"></i></a>
+                        <a href="#categories" class="btn btn-outline">Explore More</a>
+                    </div>
+                </div>
+                <div class="hero-visual" id="hero-parallax-scene">
+                    <div class="glass-card hero-main-card layer" data-depth="0.2">
+                        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=600&q=80" alt="Featured Sneaker" class="floating-img" loading="lazy" onerror="this.src='https://picsum.photos/600/400?random=1'">
+                    </div>
+                    <div class="glass-card hero-floating-badge layer" data-depth="0.5">
+                        <i class="fa-solid fa-bolt text-accent"></i>
+                        <div>
+                            <h4>Next-Gen Tech</h4>
+                            <p>Up to 40% Off</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Categories Slider Grid Section -->
+        <section id="categories" class="section categories-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Curated Categories</h2>
+                    <p class="section-subtitle">Select a destination to filter your personalized aesthetic</p>
+                </div>
+                <div class="categories-grid" id="categories-container">
+                    <!-- Javascript dynamically injects categories here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Marketplace / Shop Section -->
+        <section id="shop" class="section shop-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">The Master Catalog</h2>
+                    <p class="section-subtitle">Dynamic performance scaling featuring real-time state mutation</p>
+                </div>
+
+                <!-- Filters Controls Strip -->
+                <div class="glass-card filter-toolbar">
+                    <div class="filter-group">
+                        <label for="category-select"><i class="fa-solid fa-filter text-primary"></i> Category</label>
+                        <select id="category-select" class="custom-select">
+                            <option value="all">All Categories</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="sort-select"><i class="fa-solid fa-sort text-secondary"></i> Sort By</label>
+                        <select id="sort-select" class="custom-select">
+                            <option value="default">Featured</option>
+                            <option value="price-asc">Price: Low to High</option>
+                            <option value="price-desc">Price: High to Low</option>
+                            <option value="rating">Top Rated</option>
+                            <option value="name-asc">Alphabetical (A-Z)</option>
+                        </select>
+                    </div>
+                    <div class="filter-stats">
+                        Showing <span id="results-count">0-0</span> of <span id="total-count">0</span> items
+                    </div>
+                </div>
+
+                <!-- Products Display Grid Grid -->
+                <div class="products-grid" id="products-container">
+                    <!-- Dynamic client-side layout grid renders here -->
+                </div>
+
+                <!-- Pagination Engine -->
+                <div class="pagination-wrapper" id="pagination-container">
+                    <!-- Pagination navigation links populate dynamically -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Customer Testimonials Section -->
+        <section class="section reviews-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Trusted globally</h2>
+                    <p class="section-subtitle">What architectural leaders say about our performance</p>
+                </div>
+                <div class="slider-viewport">
+                    <div class="slider-track" id="reviews-slider">
+                        <!-- Dynamic Slider Injection -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical Integration Specs / About Section -->
+        <section id="about" class="section about-section">
+            <div class="container">
+                <div class="glass-card about-grid">
+                    <div class="about-info">
+                        <h2 class="section-title">Under the Hood Architecture</h2>
+                        <p>NEXORA is built strictly using modern **Vanilla JavaScript ECMAScript native pipelines** avoiding processing delays associated with runtime virtual-DOM engines.</p>
+                        <div class="tech-spec-list">
+                            <div class="tech-spec-item">
+                                <i class="fa-brands fa-html5 text-primary"></i>
+                                <div><h4>Semantic HTML5 Markup</h4><p>Structured SEO optimized access layout matching accessibility regulations.</p></div>
+                            </div>
+                            <div class="tech-spec-item">
+                                <i class="fa-brands fa-css3-alt text-secondary"></i>
+                                <div><h4>Advanced CSS3 Core</h4><p>GPU accelerated transitions using native custom-properties and custom glass filters.</p></div>
+                            </div>
+                            <div class="tech-spec-item">
+                                <i class="fa-brands fa-js text-accent"></i>
+                                <div><h4>Strict Async Event Loop JavaScript</h4><p>Optimized functional array programming utilizing state hydration routines.</p></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="recent-orders-card">
+                        <h3><i class="fa-solid fa-clock-rotate-left text-primary"></i> Live Deployment Ledger</h3>
+                        <p class="subtitle">Simulated real-time server orders tracker</p>
+                        <div class="orders-list" id="recent-orders-container">
+                            <!-- Populated with recent transaction mock ups -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter Subscription Banner -->
+        <section class="section newsletter-section">
+            <div class="container">
+                <div class="glass-card newsletter-card">
+                    <h2>Synchronize Your Inventory Pipeline</h2>
+                    <p>Subscribe to accept dynamic stock replenishment notices and architectural updates directly.</p>
+                    <form id="newsletter-form" class="newsletter-form">
+                        <input type="email" required placeholder="Enter developer pipeline email...">
+                        <button type="submit" class="btn btn-primary">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Global Shared Drawers (Cart and Wishlist Panels) -->
+    <div class="drawer-overlay" id="drawer-overlay"></div>
+
+    <!-- Shopping Cart Panel -->
+    <div class="side-drawer" id="cart-sidebar">
+        <div class="drawer-header">
+            <h3><i class="fa-solid fa-bag-shopping text-primary"></i> Current Order Cart</h3>
+            <button class="drawer-close" id="cart-close-btn"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="drawer-content" id="cart-items-container">
+            <!-- Items injected by template scripts -->
+        </div>
+        <div class="drawer-footer">
+            <div class="total-row"><span>Subtotal:</span><span id="cart-total-amount">$0.00</span></div>
+            <button class="btn btn-primary btn-block" id="checkout-btn">Proceed to Execution Check</button>
+            <button class="btn btn-outline btn-block text-accent" id="empty-cart-btn">Purge Cart State</button>
+        </div>
+    </div>
+
+    <!-- Wishlist Sidebar Panel -->
+    <div class="side-drawer" id="wishlist-sidebar">
+        <div class="drawer-header">
+            <h3><i class="fa-regular fa-heart text-secondary"></i> Saved Favorites</h3>
+            <button class="drawer-close" id="wishlist-close-btn"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="drawer-content" id="wishlist-items-container">
+            <!-- Wishlist contents -->
+        </div>
+    </div>
+
+    <!-- Security Validation Portal Modal (Login / Register Modal) -->
+    <div class="modal-overlay" id="auth-modal">
+        <div class="glass-card modal-box">
+            <button class="modal-close" id="auth-close-btn"><i class="fa-solid fa-xmark"></i></button>
+            <div class="auth-tabs">
+                <button class="auth-tab active" id="tab-login-btn">Secure Login</button>
+                <button class="auth-tab" id="tab-register-btn">Register Node</button>
+            </div>
+            
+            <!-- Login State Container -->
+            <form id="login-form" class="auth-form">
+                <div class="form-group">
+                    <label>Node Identity Email</label>
+                    <input type="email" id="login-email" required placeholder="operator@nexora.io">
+                </div>
+                <div class="form-group">
+                    <label>Access Key Cryptographic Phrase</label>
+                    <input type="password" id="login-pass" required placeholder="••••••••">
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Authenticate Session</button>
+            </form>
+
+            <!-- Registration State Container -->
+            <form id="register-form" class="auth-form hidden">
+                <div class="form-group">
+                    <label>Developer Handles Name</label>
+                    <input type="text" id="reg-name" required placeholder="John Doe">
+                </div>
+                <div class="form-group">
+                    <label>Node Identity Email</label>
+                    <input type="email" id="reg-email" required placeholder="operator@nexora.io">
+                </div>
+                <div class="form-group">
+                    <label>Establish Secret Passcode</label>
+                    <input type="password" id="reg-pass" required placeholder="Minimum 8 characters">
+                </div>
+                <button type="submit" class="btn btn-secondary btn-block">Provision Node</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Page Footer Grid Layout Section -->
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-brand-col">
+                <a href="#" class="nav-logo">NEXORA<span>.</span></a>
+                <p class="footer-desc">Next generation high-throughput single-page client design optimization built with functional programmatic engineering protocols.</p>
+                <p class="author-credit">Crafted with ❤️ by <strong>M.Rayyan Ahmed</strong></p>
+                <div class="social-row">
+                    <a href="#" aria-label="Github Developer Node"><i class="fa-brands fa-github"></i></a>
+                    <a href="#" aria-label="LinkedIn Network"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="#" aria-label="Discord Headquarters"><i class="fa-brands fa-discord"></i></a>
+                </div>
+            </div>
+            <div>
+                <h4>Explore Vectors</h4>
+                <ul class="footer-links">
+                    <li><a href="#home">Home Node</a></li>
+                    <li><a href="#shop">Product Index</a></li>
+                    <li><a href="#categories">Category Trees</a></li>
+                    <li><a href="#about">Technical Specs</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Product Categories</h4>
+                <ul class="footer-links" id="footer-categories-links">
+                    <!-- Dynamic Insertion -->
+                </ul>
+            </div>
+            <div>
+                <h4>HQ Engineering Hub</h4>
+                <p class="footer-contact"><i class="fa-solid fa-location-dot"></i> Obsidian Base Tower, Floor 101, Cyber District</p>
+                <p class="footer-contact"><i class="fa-solid fa-terminal"></i> active-node@nexora.io</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 NEXORA Systems Group Corporation. Zero External Libraries Compiled. Open-Source Protocol.</p>
+        </div>
+    </footer>
+
+    <!-- Notification Toast Deck -->
+    <div class="toast-container" id="toast-container"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
